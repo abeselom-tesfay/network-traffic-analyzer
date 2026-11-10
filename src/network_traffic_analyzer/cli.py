@@ -3,6 +3,7 @@
 
 import argparse
 import sys
+from importlib.metadata import version
 from pathlib import Path
 
 from rich.console import Console
@@ -55,7 +56,7 @@ def create_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--version",
         action="version",
-        version="%(prog)s 0.1.0",
+        version=f"%(prog)s {version('network-traffic-analyzer')}",
     )
 
     return parser
@@ -71,7 +72,10 @@ def display_statistics(statistics: dict) -> None:
     metrics = [
         ("Total packets", statistics["total_packets"]),
         ("Total bytes", statistics["total_bytes"]),
-        ("Average packet size", f'{statistics["average_packet_size"]:.2f}'),
+        (
+            "Average packet size",
+            f'{statistics["average_packet_size"]:.2f}',
+        ),
         ("Minimum packet size", statistics["min_packet_size"]),
         ("Maximum packet size", statistics["max_packet_size"]),
         ("Unique source IPs", statistics["unique_source_ips"]),
