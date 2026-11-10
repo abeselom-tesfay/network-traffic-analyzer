@@ -1,0 +1,21 @@
+[project]
+name = "network-traffic-analyzer"
+version = "0.1.0"
+description = "A Python command-line application for analyzing network traffic, generating statistics, and detecting suspicious activity patterns."
+authors = [
+    {name = "abeselom-ab",email = "abeselomtesfay@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas (>=3.1.1,<4.0.0)",
+    "numpy (>=2.5.4,<3.0.0)",
+    "rich (>=15.0.0,<16.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "network_traffic_analyzer", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
